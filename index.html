@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aquila Mobility OS</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">AM</div><div><strong>Aquila Mobility</strong><span>Command OS</span></div></div>
+      <nav id="nav">
+        <button class="nav-item active" data-view="dashboard">⌂ <span>Command</span></button>
+        <button class="nav-item" data-view="pipeline">◫ <span>Pipeline</span></button>
+        <button class="nav-item" data-view="jobs">⌕ <span>Jobs</span></button>
+        <button class="nav-item" data-view="outreach">✉ <span>Outreach</span></button>
+        <button class="nav-item" data-view="cv">▤ <span>CV Router</span></button>
+        <button class="nav-item" data-view="approvals">✓ <span>Approvals</span></button>
+        <button class="nav-item" data-view="integrations">⌘ <span>Integrations</span></button>
+      </nav>
+      <div class="sidebar-foot"><span class="pulse"></span><span>Human approval mode</span></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div><p class="eyebrow">INTERNATIONAL MOBILITY OPERATIONS</p><h1 id="viewTitle">Command Centre</h1></div>
+        <div class="top-actions"><button class="ghost" id="refreshBtn">Refresh</button><button class="primary" id="aiBtn">Ask Mobility AI</button></div>
+      </header>
+
+      <section class="view active" id="dashboard">
+        <div class="hero panel">
+          <div><p class="eyebrow">PRIMARY MISSION</p><h2>Move from research to verified international employment.</h2><p>Every application, inquiry and visa gate is tracked with proof. No fake counts. No fabricated experience.</p></div>
+          <div class="mission-score"><span>30-day target</span><strong>100+</strong><small>verified applications</small></div>
+        </div>
+        <div class="kpis" id="kpis"></div>
+        <div class="grid two">
+          <div class="panel"><div class="panel-head"><h3>Pipeline health</h3><span class="badge">LIVE MODEL</span></div><div id="pipelineBars" class="bars"></div></div>
+          <div class="panel"><div class="panel-head"><h3>Next human actions</h3><span id="approvalCount" class="badge warn"></span></div><div id="actionList" class="action-list"></div></div>
+        </div>
+        <div class="grid two">
+          <div class="panel"><div class="panel-head"><h3>Priority markets</h3></div><div id="marketCards" class="markets"></div></div>
+          <div class="panel"><div class="panel-head"><h3>Recent activity</h3></div><div id="activity" class="activity"></div></div>
+        </div>
+      </section>
+
+      <section class="view" id="pipeline"><div class="panel"><div class="panel-head"><h3>Application pipeline</h3><button class="ghost" id="addLeadBtn">+ Add lead</button></div><div id="kanban" class="kanban"></div></div></section>
+      <section class="view" id="jobs"><div class="panel"><div class="panel-head"><h3>Verified job leads</h3><input id="jobSearch" class="search" placeholder="Search role, employer, country" /></div><div class="table-wrap"><table><thead><tr><th>Role</th><th>Employer</th><th>Market</th><th>Fit</th><th>Sponsorship</th><th>Status</th><th>Action</th></tr></thead><tbody id="jobsTable"></tbody></table></div></div></section>
+      <section class="view" id="outreach"><div class="grid two"><div class="panel"><div class="panel-head"><h3>Outreach queue</h3><span class="badge">DRAFT FIRST</span></div><div id="outreachList"></div></div><div class="panel"><h3>Campaign controls</h3><div class="control-grid"><label>Daily send cap<input type="number" id="dailyCap" value="12" /></label><label>Follow-up delay<input type="number" id="followDelay" value="6" /></label><label>Mode<select id="sendMode"><option>Draft only</option><option>Human-approved send</option></select></label></div><p class="note">A message is never counted as sent until a real Gmail message ID exists.</p></div></div></section>
+      <section class="view" id="cv"><div class="panel"><div class="panel-head"><h3>CV family router</h3><span class="badge">EVIDENCE-GATED</span></div><div id="cvGrid" class="cv-grid"></div></div></section>
+      <section class="view" id="approvals"><div class="panel"><div class="panel-head"><h3>Human approval queue</h3><span class="badge warn">REQUIRED</span></div><div id="approvalQueue"></div></div></section>
+      <section class="view" id="integrations"><div class="panel"><div class="panel-head"><h3>Connected systems</h3></div><div id="integrationGrid" class="integration-grid"></div></div></section>
+    </main>
+  </div>
+
+  <div class="drawer" id="aiDrawer"><div class="drawer-head"><div><span class="eyebrow">MOBILITY COPILOT</span><h3>Ask the operating system</h3></div><button id="closeDrawer" class="icon-btn">×</button></div><div class="chat" id="chat"><div class="bot msg">I can triage a vacancy, choose the CV family, identify sponsorship/visa gates, and prepare a human-review checklist.</div></div><form id="chatForm" class="chat-form"><input id="chatInput" placeholder="Paste a role or ask what to do next…" /><button class="primary">Send</button></form></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
